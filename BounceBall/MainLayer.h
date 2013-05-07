@@ -15,6 +15,7 @@
 }
 
 @property (nonatomic, retain) Block *block;
+@property (nonatomic) BOOL isBlockTouched;
 
 +(CCScene *) scene;
 

@@ -59,7 +59,7 @@
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
     self.block = [Block layerWithColor:ccc4(0, 192, 226, 255)];
-    self.block.contentSize = CGSizeMake(20, 20);
+    self.block.contentSize = CGSizeMake(44, 44);
     self.block.position = ccp(winSize.width / 2, winSize.height / 4);
 	self.block.anchorPoint = ccp(0.5,0.5);
     self.block.ignoreAnchorPointForPosition = NO;
@@ -72,6 +72,8 @@
 // タッチが開始したとき
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    self.isBlockTouched = NO;
+    
     UITouch *touch = [touches anyObject];
     CGPoint point = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
     
@@ -88,22 +90,31 @@
     {
         self.block.color = ccc3(249, 79, 218);
         self.block.touchLocus = [CCPointArray arrayWithCapacity:50];
-        [self.block.touchLocus addControlPoint:ccp(0,0)];
+        
+        self.isBlockTouched = YES;
     }
 }
 
 // タッチが移動してるときの処理です
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = [touches anyObject];
-    CGPoint point = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-    [self.block.touchLocus addControlPoint:point];
+    if (self.isBlockTouched)
+    {
+        UITouch *touch = [touches anyObject];
+        CGPoint point = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+        [self.block.touchLocus addControlPoint:point];
+    }
 }
 
 // タッチが終了した時の処理です
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self.block move];
+    if (self.isBlockTouched)
+    {
+        [self.block move];
+    }
+    
+    self.isBlockTouched = NO;
 }
 
 // 背景を設定します
