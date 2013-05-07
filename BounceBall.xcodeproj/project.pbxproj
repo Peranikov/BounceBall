@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F31663A173902A8004DF585 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F316639173902A8004DF585 /* Block.m */; };
 		1FE2996D1738DBDF00DF4963 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE2996C1738DBDF00DF4963 /* QuartzCore.framework */; };
 		1FE2996F1738DBDF00DF4963 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE2996E1738DBDF00DF4963 /* OpenGLES.framework */; };
 		1FE299711738DBDF00DF4963 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE299701738DBDF00DF4963 /* OpenAL.framework */; };
@@ -138,11 +139,12 @@
 		1FE29B081738DBE100DF4963 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FE29B071738DBE100DF4963 /* vec4.c */; };
 		1FE29B0D1738DBE100DF4963 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE29B0C1738DBE100DF4963 /* main.m */; };
 		1FE29B101738DBE100DF4963 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE29B0F1738DBE100DF4963 /* AppDelegate.m */; };
-		1FE29B131738DBE100DF4963 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE29B121738DBE100DF4963 /* HelloWorldLayer.m */; };
-		1FE29B161738DBE100DF4963 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE29B151738DBE100DF4963 /* IntroLayer.m */; };
+		1FE29B1E1738DFC500DF4963 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE29B1D1738DFC500DF4963 /* MainLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F316638173902A8004DF585 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
+		1F316639173902A8004DF585 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Block.m; sourceTree = "<group>"; };
 		1FE299691738DBDF00DF4963 /* BounceBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BounceBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE2996C1738DBDF00DF4963 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1FE2996E1738DBDF00DF4963 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -418,10 +420,8 @@
 		1FE29B0C1738DBE100DF4963 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1FE29B0E1738DBE100DF4963 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1FE29B0F1738DBE100DF4963 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1FE29B111738DBE100DF4963 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		1FE29B121738DBE100DF4963 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
-		1FE29B141738DBE100DF4963 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		1FE29B151738DBE100DF4963 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		1FE29B1C1738DFC500DF4963 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
+		1FE29B1D1738DFC500DF4963 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,13 +484,13 @@
 			children = (
 				1FE29B0E1738DBE100DF4963 /* AppDelegate.h */,
 				1FE29B0F1738DBE100DF4963 /* AppDelegate.m */,
-				1FE29B111738DBE100DF4963 /* HelloWorldLayer.h */,
-				1FE29B121738DBE100DF4963 /* HelloWorldLayer.m */,
-				1FE29B141738DBE100DF4963 /* IntroLayer.h */,
-				1FE29B151738DBE100DF4963 /* IntroLayer.m */,
+				1FE29B1C1738DFC500DF4963 /* MainLayer.h */,
+				1FE29B1D1738DFC500DF4963 /* MainLayer.m */,
 				1FE299811738DBDF00DF4963 /* Resources */,
 				1FE299991738DBDF00DF4963 /* libs */,
 				1FE29B0A1738DBE100DF4963 /* Supporting Files */,
+				1F316638173902A8004DF585 /* Block.h */,
+				1F316639173902A8004DF585 /* Block.m */,
 			);
 			path = BounceBall;
 			sourceTree = "<group>";
@@ -1056,8 +1056,8 @@
 				1FE29B081738DBE100DF4963 /* vec4.c in Sources */,
 				1FE29B0D1738DBE100DF4963 /* main.m in Sources */,
 				1FE29B101738DBE100DF4963 /* AppDelegate.m in Sources */,
-				1FE29B131738DBE100DF4963 /* HelloWorldLayer.m in Sources */,
-				1FE29B161738DBE100DF4963 /* IntroLayer.m in Sources */,
+				1FE29B1E1738DFC500DF4963 /* MainLayer.m in Sources */,
+				1F31663A173902A8004DF585 /* Block.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1068,7 +1068,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1080,6 +1081,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1089,7 +1091,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -1099,6 +1102,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1163,6 +1167,7 @@
 				1FE29B1B1738DBE100DF4963 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
