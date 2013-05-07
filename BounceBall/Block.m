@@ -23,7 +23,8 @@
 
 - (void)move
 {
-    self.position = CGPointMake(self.position.x + self.moveX, self.position.y + self.moveY);
+//    self.position = CGPointMake(self.position.x + self.moveX, self.position.y + self.moveY);
+    [self runAction:[CCCatmullRomTo actionWithDuration:0.5 points:self.touchLocus]];
 }
 
 @end

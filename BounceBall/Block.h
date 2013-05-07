@@ -15,7 +15,7 @@
 
 @property (nonatomic) CGFloat moveX;
 @property (nonatomic) CGFloat moveY;
-
+@property (nonatomic, retain) CCPointArray *touchLocus;
 
 - (void)reverseMoveX;
 - (void)reverseMoveY;

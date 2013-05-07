@@ -27,29 +27,31 @@
         
         [self setBlock];
         
-        [self scheduleUpdate];
+//        [self scheduleUpdate];
+        
+        self.touchEnabled = YES;
     }
     
     return self;
 }
 
-- (void) update:(ccTime)delta
-{
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    CGPoint position = self.block.position;
-    
-    if (position.x >= winSize.width || position.x <= 0)
-    {
-        [self.block reverseMoveX];
-    }
-    
-    if (position.y >= winSize.height || position.y <= 0)
-    {
-        [self.block reverseMoveY];
-    }
-    
-    [self.block move];
-}
+//- (void) update:(ccTime)delta
+//{
+//    CGSize winSize = [[CCDirector sharedDirector] winSize];
+//    CGPoint position = self.block.position;
+//    
+//    if (position.x >= winSize.width || position.x <= 0)
+//    {
+//        [self.block reverseMoveX];
+//    }
+//    
+//    if (position.y >= winSize.height || position.y <= 0)
+//    {
+//        [self.block reverseMoveY];
+//    }
+//    
+//    [self.block move];
+//}
 
 // ブロックを設置します
 - (void)setBlock
@@ -64,10 +66,44 @@
     
     [self.block runAction:[CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:4.f angle:360]]];
     
-    self.block.moveX = 3;
-    self.block.moveY = 3;
-    
     [self addChild:self.block];
+}
+
+// タッチが開始したとき
+-(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+    
+    
+    CGRect blockRect = CGRectMake(self.block.position.x - self.block.contentSize.width / 2,
+                                  self.block.position.y - self.block.contentSize.height / 2,
+                                  self.block.contentSize.width,
+                                  self.block.contentSize.height);
+    
+    if (point.x >= blockRect.origin.x &&
+        point.x <= blockRect.origin.x + blockRect.size.width &&
+        point.y >= blockRect.origin.y &&
+        point.y <= blockRect.origin.y + blockRect.size.width)
+    {
+        self.block.color = ccc3(249, 79, 218);
+        self.block.touchLocus = [CCPointArray arrayWithCapacity:50];
+        [self.block.touchLocus addControlPoint:ccp(0,0)];
+    }
+}
+
+// タッチが移動してるときの処理です
+- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+    [self.block.touchLocus addControlPoint:point];
+}
+
+// タッチが終了した時の処理です
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.block move];
 }
 
 // 背景を設定します
